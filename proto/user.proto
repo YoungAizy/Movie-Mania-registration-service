@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc CreateUser (UserDto) returns (stream Json) {}
+    rpc Hello (Empty) returns (Json) {}
+}
+
+message Empty {}
+
+message Json{
+    string payload = 1;
+}
+
+message UserDto {
+    string email = 1;
+    string password = 2;
+    string username = 3;
+    optional string picture = 4;
+    optional string metadata = 5;
+}
